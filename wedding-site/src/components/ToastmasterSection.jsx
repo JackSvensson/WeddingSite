@@ -16,8 +16,7 @@ const TOASTMASTERS = [
 ];
 
 const CONTACT_REASONS = [
-  "Vill du hålla ett tal eller framföra en hyllning?",
-  "Planerar du ett spex, en sketch eller ett musikaliskt inslag?",
+  "Vill du hålla ett tal?",
   "Har du en idé till en aktivitet eller lek?",
   "Vill du samordna något med andra gäster?",
 ];
@@ -41,7 +40,7 @@ export default function ToastmasterSection() {
             Jacks fadder under insparken på Göteborgs universitet 2018, och vi
             blev snabbt nära vänner. Vi inspireras mycket av dem och deras
             kärlek till varandra – en relation som rymmer allt vi själva hoppas
-            få i vårt äktenskap: trygghet, omtanke, mycket skratt och en
+            få i vårt äktenskap: trygghet, omtanke, mycket skratt, en
             självklar kärlek och varandras bästa vänner.
           </p>
           <p>
@@ -84,7 +83,7 @@ export default function ToastmasterSection() {
             ))}
           </div>
           <p className="toastmaster__deadline">
-            Meddela gärna senast <strong>1 juli 2026</strong> så att vi hinner
+            Meddela gärna senast <strong>1 juni 2026</strong> så att vi hinner
             planera kvällen.
           </p>
         </div>
