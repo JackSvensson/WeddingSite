@@ -1,5 +1,7 @@
 import { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
+import { collection, getDocs, query, orderBy } from "firebase/firestore";
+import { db } from "../firebase";
 
 /*
  * ─── ÄNDRA DESSA FÖR ATT SÄTTA DITT LÖSENORD ───
@@ -128,24 +130,15 @@ function AdminDashboard() {
   useEffect(() => {
     const loadRsvps = async () => {
       try {
-        const idx = await window.storage.get("rsvp_index");
-        if (!idx) {
-          setLoading(false);
-          return;
-        }
-
-        const keys = JSON.parse(idx.value);
-        const entries = [];
-
-        for (const key of keys) {
-          try {
-            const result = await window.storage.get(key);
-            if (result) entries.push(JSON.parse(result.value));
-          } catch {}
-        }
-
-        // Sort by date, newest first
-        entries.sort((a, b) => new Date(b.submittedAt) - new Date(a.submittedAt));
+        const q = query(collection(db, "rsvps"), orderBy("submittedAt", "desc"));
+        const snapshot = await getDocs(q);
+        const entries = snapshot.docs.map((doc) => {
+          const data = doc.data();
+          return {
+            ...data,
+            submittedAt: data.submittedAt?.toDate?.()?.toISOString() || null,
+          };
+        });
         setRsvps(entries);
       } catch (err) {
         console.error("Failed to load RSVPs:", err);

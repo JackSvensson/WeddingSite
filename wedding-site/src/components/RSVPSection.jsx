@@ -1,4 +1,6 @@
 import { useState } from "react";
+import { collection, addDoc, serverTimestamp } from "firebase/firestore";
+import { db } from "../firebase";
 import SectionDivider from "./SectionDivider";
 
 const INITIAL_FORM = {
@@ -47,19 +49,10 @@ export default function RSVPSection() {
     setLoading(true);
 
     try {
-      const id = `rsvp:${Date.now()}_${Math.random().toString(36).slice(2, 8)}`;
-      const entry = { ...form, submittedAt: new Date().toISOString() };
-      await window.storage.set(id, JSON.stringify(entry));
-
-      // Update index
-      let existingKeys = [];
-      try {
-        const idx = await window.storage.get("rsvp_index");
-        if (idx) existingKeys = JSON.parse(idx.value);
-      } catch {}
-      existingKeys.push(id);
-      await window.storage.set("rsvp_index", JSON.stringify(existingKeys));
-
+      await addDoc(collection(db, "rsvps"), {
+        ...form,
+        submittedAt: serverTimestamp(),
+      });
       setSubmitted(true);
     } catch (err) {
       console.error("Could not save RSVP:", err);
