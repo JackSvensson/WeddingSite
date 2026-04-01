@@ -73,16 +73,6 @@ export default function InfoSection() {
           </div>
 
           <div className="info__extra-card">
-            <h3 className="info__extra-title">💌 Plus 1 & Barn</h3>
-            <p className="info__extra-text">
-              På grund av begränsat antal platser har vi tyvärr inte möjlighet
-              att bjuda med +1 eller barn. Vi har valt att fira i ett mindre
-              sällskap och bjuder därför endast de som står på inbjudan. Vi
-              hoppas på er förståelse.
-            </p>
-          </div>
-
-          <div className="info__extra-card">
             <h3 className="info__extra-title">🎁 Presenttips</h3>
             <p className="info__extra-text">
               Er närvaro på vår stora dag är den finaste presenten vi kan få ♥

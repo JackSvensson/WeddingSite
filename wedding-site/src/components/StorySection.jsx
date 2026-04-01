@@ -78,7 +78,7 @@ export default function StorySection() {
           <p>
             Den 29 augusti 2026 blir vi man och fru. Efter alla år, alla skratt,
             alla minnen och framförallt all kärlek finns det inget som känns mer
-            självklart än att det är vi.
+            självklart än att det är vi ♥.
           </p>
         </div>
       </div>
