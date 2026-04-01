@@ -10,7 +10,7 @@ import ToastmasterSection from "../components/ToastmasterSection";
 import Footer from "../components/Footer";
 import FireworksOverlay from "../components/FireworksOverlay";
 
-const WEDDING_DATE = "2026-08-29T15:00:00";
+const WEDDING_DATE = "2026-08-29T14:00:00";
 const SECTION_IDS = ["hem", "var-historia", "galleri", "information", "toastmasters", "osa"];
 
 export default function WeddingSite() {

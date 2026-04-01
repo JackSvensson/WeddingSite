@@ -1,19 +1,10 @@
 import SectionDivider from "./SectionDivider";
 
-const TOASTMASTERS = [
-  {
-    name: "Christoffer Ivar",
-    image: "🤵",
-    phone: "070-XXX XX XX",
-    email: "christoffer@email.se",
-  },
-  {
-    name: "Rebecca Ivar",
-    image: "👩‍🎤",
-    phone: "070-XXX XX XX",
-    email: "rebecca@email.se",
-  },
-];
+const TOASTMASTERS = {
+  names: ["Christoffer Ivar", "Rebecca Ivar"],
+  image: "/images/Ivars.jpeg",
+  email: "Christoffer.ivar@outlook.com",
+};
 
 const CONTACT_REASONS = [
   "Vill du hålla ett tal?",
@@ -50,23 +41,22 @@ export default function ToastmasterSection() {
           </p>
         </div>
 
-        {/* Toastmaster cards */}
-        <div className="toastmaster__cards">
-          {TOASTMASTERS.map((tm) => (
-            <div key={tm.name} className="toastmaster__card">
-              <div className="toastmaster__avatar">{tm.image}</div>
-              <h3 className="toastmaster__name">{tm.name}</h3>
-              <p className="toastmaster__role">Toastmaster</p>
-              <div className="toastmaster__contact">
-                <a href={`tel:${tm.phone.replace(/[- ]/g, "")}`} className="toastmaster__link">
-                  📱 {tm.phone}
-                </a>
-                <a href={`mailto:${tm.email}`} className="toastmaster__link">
-                  ✉️ {tm.email}
-                </a>
-              </div>
-            </div>
-          ))}
+        {/* Shared toastmaster card */}
+        <div className="toastmaster__card toastmaster__card--shared">
+          <img
+            src={TOASTMASTERS.image}
+            alt="Rebecca och Christoffer Ivar"
+            className="toastmaster__photo"
+          />
+          <h3 className="toastmaster__name">
+            {TOASTMASTERS.names.join(" & ")}
+          </h3>
+          <p className="toastmaster__role">Toastmasters</p>
+          <div className="toastmaster__contact">
+            <a href={`mailto:${TOASTMASTERS.email}`} className="toastmaster__link">
+              ✉️ {TOASTMASTERS.email}
+            </a>
+          </div>
         </div>
 
         {/* What to contact them for */}
