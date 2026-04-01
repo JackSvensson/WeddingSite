@@ -2,22 +2,16 @@ import SectionDivider from "./SectionDivider";
 
 const TOASTMASTERS = [
   {
-    name: "Förnamn Efternamn",
-    role: "Toastmaster",
+    name: "Christoffer Ivar",
     image: "🤵",
     phone: "070-XXX XX XX",
-    email: "toastmaster1@email.se",
-    description:
-      "En kort presentation av toastmastern. Relation till brudparet och kanske en rolig detalj.",
+    email: "christoffer@email.se",
   },
   {
-    name: "Förnamn Efternamn",
-    role: "Toastmaster",
+    name: "Rebecca Ivar",
     image: "👩‍🎤",
     phone: "070-XXX XX XX",
-    email: "toastmaster2@email.se",
-    description:
-      "En kort presentation av toastmastern. Relation till brudparet och kanske en rolig detalj.",
+    email: "rebecca@email.se",
   },
 ];
 
@@ -37,11 +31,25 @@ export default function ToastmasterSection() {
 
         <SectionDivider />
 
-        <p className="toastmaster__intro">
-          Våra fantastiska toastmasters ansvarar för underhållningen under
-          kvällen. Kontakta dem om du vill bidra med tal, spex eller andra
-          inslag — de samordnar allt så kvällen blir magisk!
-        </p>
+        <div className="toastmaster__story">
+          <p>
+            Våra toastmasters är Rebecca och Christoffer Ivar – ett par som
+            står oss väldigt nära.
+          </p>
+          <p>
+            Vi lärde känna Rebecca och Christoffer i Göteborg när Rebecca var
+            Jacks fadder under insparken på Göteborgs universitet 2018, och vi
+            blev snabbt nära vänner. Vi inspireras mycket av dem och deras
+            kärlek till varandra – en relation som rymmer allt vi själva hoppas
+            få i vårt äktenskap: trygghet, omtanke, mycket skratt och en
+            självklar kärlek och varandras bästa vänner.
+          </p>
+          <p>
+            Med sin kvicka och naturliga humor skapar de alltid en avslappnad
+            och glad stämning, precis det vi önskar för vår dag! Vi är så glada
+            och tacksamma att just de kommer guida oss (och er!) genom middagen.
+          </p>
+        </div>
 
         {/* Toastmaster cards */}
         <div className="toastmaster__cards">
@@ -49,8 +57,7 @@ export default function ToastmasterSection() {
             <div key={tm.name} className="toastmaster__card">
               <div className="toastmaster__avatar">{tm.image}</div>
               <h3 className="toastmaster__name">{tm.name}</h3>
-              <p className="toastmaster__role">{tm.role}</p>
-              <p className="toastmaster__description">{tm.description}</p>
+              <p className="toastmaster__role">Toastmaster</p>
               <div className="toastmaster__contact">
                 <a href={`tel:${tm.phone.replace(/[- ]/g, "")}`} className="toastmaster__link">
                   📱 {tm.phone}

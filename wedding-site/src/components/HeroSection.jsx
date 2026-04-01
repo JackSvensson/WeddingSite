@@ -22,7 +22,7 @@ export default function HeroSection({ countdown }) {
       <p className="hero__subtitle">Vi gifter oss</p>
 
       <h1 className="hero__names">
-        Jack Svensson <span>&</span> Anne Dollevoet
+        Jack <span>&</span> Anne
       </h1>
 
       <p className="hero__date">29 AUGUSTI 2026</p>

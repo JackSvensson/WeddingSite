@@ -175,7 +175,7 @@ function AdminDashboard() {
         <div className="admin-dashboard__header-inner">
           <div>
             <h1 className="admin-dashboard__title">OSA Dashboard</h1>
-            <p className="admin-dashboard__subtitle">Förnamn & Förnamn — 29 augusti 2026</p>
+            <p className="admin-dashboard__subtitle">Jack & Anne — 29 augusti 2026</p>
           </div>
           <div className="admin-dashboard__actions">
             <button
