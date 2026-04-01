@@ -102,7 +102,6 @@ function RSVPEntry({ rsvp }) {
       </div>
       <div className="rsvp-entry__details">
         {rsvp.dietary && <div>🍽️ {rsvp.dietary}</div>}
-        {rsvp.dj && <div>🎧 DJ:a: {rsvp.dj === "ja" ? "Ja!" : "Nej"}</div>}
         {rsvp.message && <div className="rsvp-entry__message">"{rsvp.message}"</div>}
         {rsvp.submittedAt && (
           <div className="rsvp-entry__date">
@@ -162,10 +161,6 @@ function AdminDashboard() {
     .filter((r) => r.dietary)
     .map((r) => ({ name: r.name, dietary: r.dietary }));
 
-  const djList = attending
-    .filter((r) => r.dj === "ja")
-    .map((r) => r.name);
-
   const filteredRsvps =
     filter === "all"
       ? rsvps
@@ -206,7 +201,6 @@ function AdminDashboard() {
             { label: "Totalt svar", value: rsvps.length, color: "var(--sage)" },
             { label: "Kommer", value: attending.length, color: "#5a9e5a" },
             { label: "Kan inte", value: declined.length, color: "#c47a7a" },
-            { label: "Vill DJ:a", value: djList.length, color: "var(--gold)" },
           ].map((stat) => (
             <div key={stat.label} className="admin-stat-card">
               <div className="admin-stat-card__value" style={{ color: stat.color }}>
@@ -218,31 +212,18 @@ function AdminDashboard() {
         </div>
 
         {/* Two-column: dietary + songs */}
-        {(dietaryList.length > 0 || djList.length > 0) && (
+        {dietaryList.length > 0 && (
           <div className="admin-dashboard__columns">
-            {dietaryList.length > 0 && (
-              <div className="admin-info-card">
-                <h3 className="admin-info-card__title">🍽️ Allergier & Specialkost</h3>
-                <ul className="admin-info-card__list">
-                  {dietaryList.map((item, i) => (
-                    <li key={i}>
-                      <strong>{item.name}:</strong> {item.dietary}
-                    </li>
-                  ))}
-                </ul>
-              </div>
-            )}
-
-            {djList.length > 0 && (
-              <div className="admin-info-card">
-                <h3 className="admin-info-card__title">🎧 Vill DJ:a</h3>
-                <ul className="admin-info-card__list">
-                  {djList.map((name, i) => (
-                    <li key={i}>{name}</li>
-                  ))}
-                </ul>
-              </div>
-            )}
+            <div className="admin-info-card">
+              <h3 className="admin-info-card__title">🍽️ Allergier & Specialkost</h3>
+              <ul className="admin-info-card__list">
+                {dietaryList.map((item, i) => (
+                  <li key={i}>
+                    <strong>{item.name}:</strong> {item.dietary}
+                  </li>
+                ))}
+              </ul>
+            </div>
           </div>
         )}
 

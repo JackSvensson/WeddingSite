@@ -7,7 +7,6 @@ const INITIAL_FORM = {
   name: "",
   attending: "",
   dietary: "",
-  dj: "",
   message: "",
 };
 
@@ -37,12 +36,8 @@ export default function RSVPSection() {
 
   const showExtras = form.attending === "ja";
 
-  // Validate: only name, attending, and dj (if attending) are required
-  const isValid = (() => {
-    if (!form.name.trim() || !form.attending) return false;
-    if (form.attending === "ja") return !!form.dj;
-    return true;
-  })();
+  // Validate: name and attending are required
+  const isValid = !!(form.name.trim() && form.attending);
 
   const handleSubmit = async () => {
     if (!isValid) return;
@@ -119,28 +114,6 @@ export default function RSVPSection() {
                     onChange={handleChange("dietary")}
                     placeholder="T.ex. glutenfritt, vegetariskt, nötallergi..."
                   />
-                </div>
-
-                {/* DJ toggle */}
-                <div className="rsvp__field">
-                  <label className="rsvp__label">Vill du DJ:a? 🎧 *</label>
-                  <div className="rsvp__toggle-group">
-                    {[
-                      { value: "ja", label: "Ja, absolut!" },
-                      { value: "nej", label: "Nej tack" },
-                    ].map((opt) => (
-                      <button
-                        key={opt.value}
-                        type="button"
-                        onClick={() => handleToggle("dj", opt.value)}
-                        className={`rsvp__toggle ${
-                          form.dj === opt.value ? "rsvp__toggle--selected" : ""
-                        }`}
-                      >
-                        {opt.label}
-                      </button>
-                    ))}
-                  </div>
                 </div>
 
               </>
