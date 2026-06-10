@@ -72,10 +72,7 @@ export default function ToastmasterSection() {
               </div>
             ))}
           </div>
-          <p className="toastmaster__deadline">
-            Meddela gärna senast <strong>1 juni 2026</strong> så att vi hinner
-            planera kvällen.
-          </p>
+
         </div>
       </div>
     </section>
